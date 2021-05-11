@@ -1,11 +1,12 @@
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card, Grid } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MoviesCard from './movieCard';
 import Carousel from 'react-elastic-carousel'
+import Slider from 'infinite-react-carousel'
 
 const Featured_Api = `https://api.themoviedb.org/3/movie/top_rated?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=10`;
-    
+
 const TopFilms = () => {
     const [TopMovies, setTopMovies] = useState([])
 
@@ -21,8 +22,8 @@ const TopFilms = () => {
         { width: 550, itemsToShow: 2, itemsToScroll: 2 },
         { width: 768, itemsToShow: 3 },
         { width: 1200, itemsToShow: 4 }
-      ];
-    
+    ];
+
     return (
         <>
             <Grid>
@@ -31,15 +32,15 @@ const TopFilms = () => {
 
             <Grid container>
                 <Carousel breakPoints={breakPoints}>
-                {
-                    TopMovies.length > 0 && TopMovies.map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
-                }
+                    {
+                        TopMovies.length > 0 && TopMovies.map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /><br></br><br></br></Grid.Column>)
+                    }
                 </Carousel>
-               
+
             </Grid>
             <Grid columns={1} centered container>
                 <Grid.Column className='cardColumn'>
-                <Link to='/movies'><Button centered color='green' basic>Voir plus</Button></Link>
+                    <Link to='/movies'><Button centered color='green' basic>Voir plus</Button></Link>
                 </Grid.Column>
             </Grid>
         </>

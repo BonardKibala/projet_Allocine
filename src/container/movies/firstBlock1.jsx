@@ -17,7 +17,7 @@ const FirstBlock1 = () => {
                     </div>
                     <div>
                         <Link to="/movies">
-                            <Button color='green' secondary className='btnStart'>
+                            <Button color='green' basic className='btnStart'>
                                 Commencer
                          </Button>
                         </Link>

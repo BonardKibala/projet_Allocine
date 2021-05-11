@@ -40,7 +40,7 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
       open={open}
       size='fullscreen'
       trigger={
-        <Card color='red' raised>
+        <Card color='red' raised className='cardMovie'>
           <Image src={Image_Api + poster_path} wrapped ui={false} className='cardImage' />
           <Card.Content className='cardContent'>
             <Card.Header className='filmTitle'>{title}</Card.Header>
