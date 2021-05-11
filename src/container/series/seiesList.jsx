@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Grid, Pagination } from "semantic-ui-react";
 import LoaderPage from "../movies/loader";
 import FormSearch from "../Elements/formsearch";
-import ActorsCard from "../actors/actorsCard";
+import Moviesbar from "../movies/moviesBar";
 import TvCard from "./TvCards";
 
 
@@ -70,6 +70,7 @@ return (
                 <FormSearch  onChange={(e) => handlechange(e)} onSubmit={(e) => handlesubmit(e)} value={searchValue}/>
             </Grid.Column>
             <Grid.Column computer={16} mobile={16} tablet={16} className='moviesBar'>
+            <Moviesbar  />
                 <div className='movieTitle'><h1>{searchValue?`Résultat de la recherche`:title}</h1><div className='redBorder'></div></div><br></br><br></br>
        
             </Grid.Column>

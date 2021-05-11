@@ -31,11 +31,9 @@ const TopFilms = () => {
             </Grid>
 
             <Grid container>
-                <Carousel breakPoints={breakPoints}>
                     {
-                        TopMovies.length > 0 && TopMovies.map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /><br></br><br></br></Grid.Column>)
+                        TopMovies.length > 0 && TopMovies.slice(0,4).map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /><br></br><br></br></Grid.Column>)
                     }
-                </Carousel>
 
             </Grid>
             <Grid columns={1} centered container>
