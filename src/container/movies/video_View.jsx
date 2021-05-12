@@ -4,7 +4,7 @@ import { Button, Icon, Modal, Embed } from 'semantic-ui-react'
 
 const Image_Api = "https://image.tmdb.org/t/p/w500";
 
-const VideoView = ({ title, videoKey,poster_path }) => {
+const VideoView = ({ title, videoKey,poster_path,name }) => {
     const [open, setOpen] = React.useState(false)
     return (
         <Modal
@@ -17,12 +17,12 @@ const VideoView = ({ title, videoKey,poster_path }) => {
             size='small'
             trigger={
                 <Button color='green' inverted >
-                    <Icon name='video play' />Voir vidéo
+                    <Icon name='video play' />Prévisualiser
         </Button>
             }
             className='movieCard'
         >
-            <Modal.Header className='modalTitle'>{title}</Modal.Header>
+            <Modal.Header className='modalTitle'>{title?title:name}</Modal.Header>
             <Modal.Content >
                 <div>
                 <Embed

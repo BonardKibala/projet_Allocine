@@ -43,7 +43,7 @@ const SeriesList = () => {
     const handlesubmit = (e) => {
         e.preventDefault()
         if (searchValue) {
-            fetch_api(search_Api + searchValue +'&page=1')
+            fetch_api(search_Api + searchValue +'&page=' +activePage)
         }
         else
         {

@@ -1,20 +1,28 @@
 import React from 'react'
 import { useState, useEffect } from "react"
 import { Card, Image, Button, Icon, Modal, Table, Header, Rating, Message } from 'semantic-ui-react'
+import VideoView from '../movies/video_View';
 
 
 const Image_Api = "https://image.tmdb.org/t/p/w1280";
 
-const TvCard = ({ id, name, poster_path, overview, known_for }) => {
+const TvCard = ({ id, name, poster_path, overview }) => {
   const TvDetailsApi = `http://api.themoviedb.org/3/tv/${id}?api_key=b8e4f457e57f8e0e1ed625b784a14f3b`
+  const TvVideosApi=`https://api.themoviedb.org/3/tv/${id}/videos?api_key=b8e4f457e57f8e0e1ed625b784a14f3b`
   const [open, setOpen] = React.useState(false)
-  const [tvDetails, setTvDetails] = useState([])
 
+  const [tvDetails, setTvDetails] = useState([])
+  const [TvVideos,setTvVideos]=useState([])
   useEffect(() => {
     fetch(TvDetailsApi).then(response => response.json())
       .then(data => {
         setTvDetails([data]);
-        console.log(data)
+      })
+  }, []);
+  useEffect(() => {
+    fetch(TvVideosApi).then(response => response.json())
+      .then(data => {
+        setTvVideos(data.results);
       })
   }, []);
 
@@ -64,6 +72,8 @@ const TvCard = ({ id, name, poster_path, overview, known_for }) => {
             <h1 className='title'>Description</h1>
             {ContentDetails()}
           </div>
+          <VideoView poster_path={poster_path} name={name} videoKey={TvVideos.slice(0, 1).map(video => video.key)} />
+
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
