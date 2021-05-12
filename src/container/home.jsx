@@ -22,7 +22,6 @@ const Home = () => {
             <div className='separeBlock'></div><br></br>
             <SeriesTV/><br></br>
             <div className='separeBlock'></div><br></br>
-            <Footer/>
         </div>
         </>
     )

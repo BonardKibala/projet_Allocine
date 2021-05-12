@@ -12,7 +12,9 @@ const Footer = () => {
                     <div className='menu-footer'>
                     <Link to="/"><h4>Accueil</h4></Link><br></br>
                     <Link to="/movies"><h4>Films</h4></Link><br></br>
-                    <Link to="/series"><h4>Series</h4></Link></div>
+                    <Link to="/series"><h4>A la Télévision</h4></Link><br></br>
+                    <Link to="/actors"><h4>Acteurs</h4></Link>
+                    </div>
                 </Grid.Column>
                 <Grid.Column mobile={16} computer={4} tablet={16} className='cardColumn'>
                     <div><h3>Vous servir est notre devoir</h3></div>

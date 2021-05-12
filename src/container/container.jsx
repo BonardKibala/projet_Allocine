@@ -5,6 +5,7 @@ import MenuSite from './menu';
 import MoviesList from './movies/moviesList';
 import SeriesList from './series/seiesList';
 import ActorsList from './actors/actorsList'
+import Footer from './footer';
 
 const PrincipalContainer = ()=>{
 
@@ -19,6 +20,7 @@ const PrincipalContainer = ()=>{
     <Route path="/series" component={SeriesList} />
     <Route path="/actors" component={ActorsList} />
 </Switch>
+<Footer/>
 </div>
     )
 }
