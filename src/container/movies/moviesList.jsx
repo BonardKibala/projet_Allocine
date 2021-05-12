@@ -10,37 +10,20 @@ import FormSearch from "../Elements/formsearch";
 
 const MoviesList = () => {
     const [movies, setMovies] = useState([])
-    const [genreId, setGenreId] = useState(1)
     const Featured_Api = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
-   
-    const comedyApi = `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const actionApi = `https://api.themoviedb.org/3/discover/movie?with_genres=28&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const romanceApi = `https://api.themoviedb.org/3/discover/movie?with_genres=10749&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const aventureApi = `https://api.themoviedb.org/3/discover/movie?with_genres=12&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const crimeApi = `https://api.themoviedb.org/3/discover/movie?with_genres=80&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const topApi=`https://api.themoviedb.org/3/movie/top_rated?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
-    const familialApi = `https://api.themoviedb.org/3/discover/movie?with_genres=10751&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const DocumentApi = `https://api.themoviedb.org/3/discover/movie?with_genres=99&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
-    const fictionUrlSciences =`https://api.themoviedb.org/3/discover/movie?with_genres=99&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
+    const genrePart1 = 'https://api.themoviedb.org/3/discover/movie?with_genres=';
+    const genrePart2 = '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page='
 
-    
+    const topApi=`https://api.themoviedb.org/3/movie/top_rated?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
+     
     const [activePage, setActivePage] = useState(1);
     const search_Api = `https://api.themoviedb.org/3/search/movie?&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&page=${activePage}&query=`;
     const [searchValue, setSearchValue] = useState('')
     const [searchQuery, setSearchQuery] = useState(search_Api + searchValue)
     const [title, setTitle] = useState('Tous les Films')
     const [DiscoverApi, setDiscoverApi] = useState(Featured_Api + activePage);
-
-    const [comedyUrl, setcomedyUrl] = useState(comedyApi + activePage);
-    const [actionUrl, setActionUrl] = useState(actionApi + activePage);
-    const [romanceUrl, setRomanceUrl] = useState(romanceApi + activePage)
-    const [aventureUrl, setAventureUrl] = useState(aventureApi + activePage)
-    const [crimeUrl, setCrimeurl] = useState(crimeApi + activePage)
     const [topUrl,setTopApi]=useState(topApi+activePage)
-    const [familialUrl,setfamilialUrl]=useState(familialApi+activePage)
-    const [documentUrl,setDocumentUrl]=useState(DocumentApi+activePage)
-    const [fictionUrl,setfictionUrl]=useState(fictionUrlSciences+activePage)
-    const [loading, setLoading] = useState(false)
+     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -76,8 +59,7 @@ const MoviesList = () => {
         const buttonChildren = e.target.id
         switch (buttonChildren) {
             case 'comedy':
-                setGenreId(35)
-                fetch_api('https://api.themoviedb.org/3/discover/movie?with_genres='+genreId + '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=' +activePage)
+                fetch_api(genrePart1 + 35 + genrePart2 + activePage)
                 setTitle('Comedies')
                 break;
             case 'tous':
@@ -89,40 +71,38 @@ const MoviesList = () => {
                 setTitle('Top films')
                 break;
             case 'action':
-                setGenreId(28)
-                fetch_api('https://api.themoviedb.org/3/discover/movie?with_genres='+genreId + '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=' +activePage)
+                fetch_api(genrePart1+ 28 + genrePart2 +activePage)
                 setTitle('Actions')
                 break;
             case 'romance':
-                fetch_api(romanceUrl)
+                fetch_api(genrePart1+ 10749 + genrePart2 +activePage)
                 setTitle('Romantiques')
                 break;
             case 'aventure':
-                fetch_api(aventureUrl)
+                fetch_api(genrePart1+ 12 + genrePart2 +activePage)
                 setTitle('Aventures')
                 break;
             case 'crime':
-                fetch_api(crimeUrl)
+                fetch_api(genrePart1+ 80 + genrePart2 +activePage)
                 setTitle('Crimes')
                 break;
                 case 'familial':
-                fetch_api(familialUrl)
+                fetch_api(genrePart1+ 10751 + genrePart2 +activePage)
                 setTitle('Familial')
                 break;
                 case 'documentaire':
-                fetch_api(documentUrl)
+                fetch_api(genrePart1+ 99 + genrePart2 +activePage)
                 setTitle('Documentaires')
                 break;
 
                 case 'fiction':
-                fetch_api(fictionUrl)
+                fetch_api(genrePart1+ 878 + genrePart2 +activePage)
                 setTitle('Sciences fictions')
                 break;
 
             default:
                 break;
         }
-console.log(buttonChildren);
     }
 
 
@@ -130,16 +110,8 @@ const pageChange = (e, pageInfo) => {
     e.preventDefault()
     setActivePage(pageInfo.activePage);
     setDiscoverApi(Featured_Api + pageInfo.activePage.toString());
-    setcomedyUrl(comedyApi + pageInfo.activePage.toString())
-    setActionUrl(actionApi + pageInfo.activePage.toString())
-    setRomanceUrl(romanceApi + pageInfo.activePage.toString())
-    setAventureUrl(aventureApi + pageInfo.activePage.toString())
-    setTopApi(topApi+pageInfo.activePage.toString())
-    setCrimeurl(crimeApi+pageInfo.activePage.toString())
-    setfamilialUrl(familialApi+pageInfo.activePage.toString())
-    setDocumentUrl(DocumentApi+pageInfo.activePage.toString())
-    setfictionUrl(fictionUrlSciences+pageInfo.activePage.toString())
-};
+     setTopApi(topApi+pageInfo.activePage.toString())
+    };
 
 return (
     <div >

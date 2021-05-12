@@ -36,10 +36,13 @@ const TvBar=({onClick})=> {
         <Button centered color='green' id='documentaire' basic onClick={onClick} basic>Documentaire</Button>
         </Menu.Item>
         <Menu.Item>
-        <Button centered color='green' id='realite' basic onClick={onClick} basic>Réalité</Button>
+        <Button centered color='green' id='reality' basic onClick={onClick} basic>Réalité</Button>
         </Menu.Item>
         <Menu.Item>
-        <Button centered color='green' id='politique' basic onClick={onClick} basic>Politique</Button>
+        <Button centered color='green' id='politic' basic onClick={onClick} basic>Guerres et Politique</Button>
+        </Menu.Item>
+        <Menu.Item>
+        <Button centered color='green' id='drame' basic onClick={onClick} basic>Drames</Button>
         </Menu.Item>
         <Menu.Item>
         <Button centered color='green' id='today' basic onClick={onClick} basic>Aujourd'hui</Button>
