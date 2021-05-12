@@ -10,9 +10,10 @@ import FormSearch from "../Elements/formsearch";
 
 const MoviesList = () => {
     const [movies, setMovies] = useState([])
-    const [genreId, setGenreId] = useState('')
+    const [genreId, setGenreId] = useState(1)
     const Featured_Api = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
-    const comedyApi = `https://api.themoviedb.org/3/discover/movie?with_genres=35&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
+   
+    const comedyApi = `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
     const actionApi = `https://api.themoviedb.org/3/discover/movie?with_genres=28&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
     const romanceApi = `https://api.themoviedb.org/3/discover/movie?with_genres=10749&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
     const aventureApi = `https://api.themoviedb.org/3/discover/movie?with_genres=12&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`
@@ -29,6 +30,7 @@ const MoviesList = () => {
     const [searchQuery, setSearchQuery] = useState(search_Api + searchValue)
     const [title, setTitle] = useState('Tous les Films')
     const [DiscoverApi, setDiscoverApi] = useState(Featured_Api + activePage);
+
     const [comedyUrl, setcomedyUrl] = useState(comedyApi + activePage);
     const [actionUrl, setActionUrl] = useState(actionApi + activePage);
     const [romanceUrl, setRomanceUrl] = useState(romanceApi + activePage)
@@ -74,7 +76,8 @@ const MoviesList = () => {
         const buttonChildren = e.target.id
         switch (buttonChildren) {
             case 'comedy':
-                fetch_api(comedyUrl)
+                setGenreId(35)
+                fetch_api('https://api.themoviedb.org/3/discover/movie?with_genres='+genreId + '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=' +activePage)
                 setTitle('Comedies')
                 break;
             case 'tous':
@@ -86,7 +89,8 @@ const MoviesList = () => {
                 setTitle('Top films')
                 break;
             case 'action':
-                fetch_api(actionUrl)
+                setGenreId(28)
+                fetch_api('https://api.themoviedb.org/3/discover/movie?with_genres='+genreId + '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=' +activePage)
                 setTitle('Actions')
                 break;
             case 'romance':
