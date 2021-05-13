@@ -1,33 +1,39 @@
-import { Menu, Segment, Search, Header, Icon, Input, Form } from 'semantic-ui-react'
-import React, { useState } from 'react'
+import { Menu, Segment, Search, Header, Icon, Input, Form, Grid } from 'semantic-ui-react'
+import React, { useState,useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import MoviesList from './movies/moviesList'
 
 
 const MenuSite = () => {
-    const [activeItem, setActiveItem] = useState('films')
-    const handleItemClick = (name) => {
+    const [activeItem, setActiveItem] = useState('')
+    const handleItemClick = useCallback((name) => {
         setActiveItem(name)
-    }
+    });
     return (
         <>
             <Segment inverted className='Menu'>
                 <Menu inverted pointing secondary >
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column computer={8} mobile={8} className='cardColumn'>
+                                <Menu.Item onClick={() => handleItemClick('home')} active={activeItem === 'home'}>
+                                    <Header inverted className='header'>
+                                        <Link to='/'><h1 className='head' >Biso<span className='span'>Film</span></h1></Link><Icon className='iconFilm' name='film' />
+                                    </Header>
+                                </Menu.Item>
+                            </Grid.Column>
+                            <Grid.Column computer={8} mobile={8}>
+                                <Menu.Menu position='right'>
+                                    
+                                    <Link to="/movies"><Menu.Item name='Films' onClick={() => handleItemClick('films')} active={activeItem === 'films'} /></Link>
 
-                    <Menu.Item>
-                        <Header inverted className='header'>
-                            <Link to='/'><h1 className='head'>Biso<span className='span'>Film</span></h1></Link><Icon className='iconFilm' name='film' />
-                        </Header>
-                    </Menu.Item>
+                                    <Link to="/series"><Menu.Item name='Tv' onClick={() => handleItemClick('tv')} active={activeItem === 'tv'} /></Link>
+                                    <Link to="/actors"><Menu.Item name='Acteurs' onClick={() => handleItemClick('acteurs')} active={activeItem === 'acteurs'} /></Link>
 
-                    <Menu.Menu position='right' >
-                        <Link to="/movies"><Menu.Item name='films' onClick={() => handleItemClick('films')} active={activeItem === 'films'} /></Link>
-
-                        <Link to="/series"><Menu.Item name='tv' onClick={() => handleItemClick('tv')} active={activeItem === 'tv'} /></Link>
-                        <Link to="/actors"><Menu.Item name='acteurs' onClick={() => handleItemClick('acteurs')} active={activeItem === 'acteurs'} /></Link>
-
-
-                    </Menu.Menu>
+                                </Menu.Menu>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 </Menu>
             </Segment><br></br>
 

@@ -146,7 +146,7 @@ const SeriesList = () => {
                             }
                         </Grid>
                         <Grid>
-                            <Grid.Column className='cardColumn'>
+                            <Grid.Column className='cardColumn' mobile={8}>
                                 <Pagination
                                     activePage={activePage}
                                     onPageChange={pageChange}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Menu,Button } from 'semantic-ui-react'
+import {Menu,Button, Grid } from 'semantic-ui-react'
 
 const Moviesbar=({onClick})=> {
   const [activeItem,setAtiveItem]=useState('home')
@@ -8,6 +8,7 @@ const Moviesbar=({onClick})=> {
 
     return (
       <Menu inverted className='moviebar'>
+        <Grid container>
         <Menu.Item>
         <Button centered color='green' id='tous' basic onClick={onClick}>Tous les films</Button>
         </Menu.Item>
@@ -38,6 +39,7 @@ const Moviesbar=({onClick})=> {
         <Menu.Item>
         <Button centered color='green' id='fiction' basic onClick={onClick} basic>Science Fiction</Button>
         </Menu.Item>
+        </Grid>
       </Menu>
     )
   }

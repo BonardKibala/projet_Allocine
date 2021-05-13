@@ -25,7 +25,7 @@ const LastFilms = () => {
 
             <Grid container>
                 {
-                 loading?<LoaderPage/>:lastMovies.length > 0 && lastMovies.slice(0,4).map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
+                 loading?<LoaderPage/>:lastMovies.length > 0 && lastMovies.slice(0,4).map(movie => <Grid.Column mobile={8} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
                 }
             </Grid>
             <Grid columns={1} centered container>

@@ -32,7 +32,7 @@ const News = () => {
                     
                 </Slider> */}
                 {
-                    newsMovies.length > 0 && newsMovies.slice(0, 4).map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
+                    newsMovies.length > 0 && newsMovies.slice(0, 4).map(movie => <Grid.Column mobile={8} tablet={5} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
                 }
 
             </Grid>

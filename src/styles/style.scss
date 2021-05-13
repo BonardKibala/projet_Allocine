@@ -1,20 +1,20 @@
 .head{
    color: red;
-   font-size: 3rem;
+   font-size: 2rem;
    font-style: italic;
 }
 .header{
     display: flex;
     width: 100%;
 }
-.iconFilm1{
-    font-size: 3rem !important;
-    padding-top: 2rem;
-    color: red !important;
-}
+// .iconFilm1{
+//     font-size: 2em !important;
+//     padding-top: 2rem;
+//     color: red !important;
+// }
 .span{
 color: white;
-font-size: 3rem;
+font-size: 2rem;
 font-style: italic;
 }
 
@@ -30,7 +30,7 @@ font-style: italic;
     background-color: black !important;
     }
 .startSegment1{
-    background-image: url('../images/mimpo.jpg') !important;
+    // background-image: url('../images/mimpo.jpg') !important;
     background-size: cover !important;
     background-repeat: no-repeat,repeat-y !important;
     height:  101vh !important;

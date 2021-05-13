@@ -24,7 +24,7 @@ const SeriesTV = () => {
 
             <Grid container>
                 {
-                    SeriesTV.length > 0 && SeriesTV.slice(0,4).map(movie => <Grid.Column mobile={16} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
+                    SeriesTV.length > 0 && SeriesTV.slice(0,4).map(movie => <Grid.Column mobile={8} tablet={8} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
                 }
             </Grid>
             <Grid columns={1} centered container>

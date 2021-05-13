@@ -65,7 +65,7 @@ const MoviesList = () => {
                 break;
             case 'tous':
                 fetch_api(DiscoverApi)
-                setDiscoverApi(DiscoverApi)
+                setDiscoverApi(Featured_Api +activePage)
                 setTitle('Tous les films')
                 break;
             case 'top':
@@ -146,7 +146,7 @@ const MoviesList = () => {
                             <br></br>
                         </Grid>
                         <Grid>
-                            <Grid.Column className='cardColumn'>
+                            <Grid.Column className='cardColumn' mobile={16}>
                             <Pagination
                                 activePage={activePage}
                                 onPageChange={pageChange}
