@@ -17,14 +17,14 @@ const MoviesList = () => {
     const topApi = `https://api.themoviedb.org/3/movie/top_rated?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
 
     const [activePage, setActivePage] = useState(1);
-    const search_Api = `https://api.themoviedb.org/3/search/movie?&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&page=${activePage}&query=`;
+    const search_Api = `https://api.themoviedb.org/3/search/movie?&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&query=`;
     const [searchValue, setSearchValue] = useState('')
     const [searchQuery, setSearchQuery] = useState(search_Api + searchValue)
     const [title, setTitle] = useState('Tous les Films')
     const [DiscoverApi, setDiscoverApi] = useState(Featured_Api + activePage);
     const [topUrl, setTopApi] = useState(topApi + activePage)
     const [loading, setLoading] = useState(false)
-    const [modifiedApi,setmodifiedApi]=useState(DiscoverApi)
+    const [idValue,setIdValue]=useState('')
 
     useEffect(() => {
         setLoading(true)
@@ -47,16 +47,14 @@ const MoviesList = () => {
         e.preventDefault()
         if (searchValue) {
             fetch_api(search_Api + searchValue)
-        }
-        else {
-            fetch_api(DiscoverApi)
-            setTitle('Tous les films')
+            setDiscoverApi(search_Api + searchValue +'&page='+activePage)
         }
 
     })
 
     const clickMoviesbar = useCallback((e) => {
         const buttonChildren = e.target.id
+        setIdValue(buttonChildren)
         switch (buttonChildren) {
             case 'comedy':
                 fetch_api(genrePart1 + 35 + genrePart2 + activePage)
@@ -113,14 +111,53 @@ const MoviesList = () => {
             default:
                 break;
         }
+        
     })
 
 
     const pageChange = (e, pageInfo) => {
         e.preventDefault()
         setActivePage(pageInfo.activePage);
-        setDiscoverApi(Featured_Api + pageInfo.activePage.toString());
         setTopApi(topApi + pageInfo.activePage.toString())
+        switch (idValue) {
+            case 'comedy':
+                setDiscoverApi(genrePart1 + 35 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'tous':
+                setDiscoverApi(Featured_Api +pageInfo.activePage.toString())
+                break;
+            case 'top':
+                setDiscoverApi(topUrl)
+                break;
+            case 'action':
+                setDiscoverApi(genrePart1 + 28 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'romance':
+                setDiscoverApi(genrePart1 + 10749 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'aventure':
+                setDiscoverApi(genrePart1 + 12 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'crime':
+                setDiscoverApi(genrePart1 + 80 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'familial':
+                setDiscoverApi(genrePart1 + 10751 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'documentaire':
+                setDiscoverApi(genrePart1 + 99 + genrePart2 + pageInfo.activePage.toString())
+                break;
+
+            case 'fiction':
+                setDiscoverApi(genrePart1 + 878 + genrePart2 + pageInfo.activePage.toString())
+                break;
+
+            default:
+                break;
+        }
+        if (searchValue) {
+            setDiscoverApi(search_Api + searchValue+'&page='+pageInfo.activePage.toString())
+        }
     };
 
     return (
@@ -131,7 +168,7 @@ const MoviesList = () => {
                 </Grid.Column>
                 <Grid.Column computer={16} mobile={16} tablet={16} className='moviesBar'>
                     <Moviesbar onClick={(e) => clickMoviesbar(e)} />
-                    <div className='movieTitle'><h1>{searchValue ? `Résultat de la recherche` : title}</h1><div className='redBorder'></div></div><br></br><br></br>
+                    <div className='movieTitle'><h1>{searchValue ? `Résultat pour ${searchValue}` : title}</h1><div className='redBorder'></div></div><br></br><br></br>
 
                 </Grid.Column>
             </Grid>
