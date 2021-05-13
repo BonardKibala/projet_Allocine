@@ -20,7 +20,7 @@ const MenuSite = () => {
                         </Header>
                     </Menu.Item>
 
-                    <Menu.Menu position='right' className='search'>
+                    <Menu.Menu position='right' >
                         <Link to="/movies"><Menu.Item name='films' onClick={() => handleItemClick('films')} active={activeItem === 'films'} /></Link>
 
                         <Link to="/series"><Menu.Item name='tv' onClick={() => handleItemClick('tv')} active={activeItem === 'tv'} /></Link>

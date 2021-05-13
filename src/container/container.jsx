@@ -11,11 +11,9 @@ const PrincipalContainer = ()=>{
 
     return (
 <div className='principalcontainer'>
-<Switch>
-    <Route exact path="/" component={Home} />
-</Switch>
 <MenuSite/>
 <Switch>
+    <Route exact path="/" component={Home} />
     <Route path="/movies" component={MoviesList} />
     <Route path="/series" component={SeriesList} />
     <Route path="/actors" component={ActorsList} />
