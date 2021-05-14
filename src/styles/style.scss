@@ -27,16 +27,10 @@ font-style: italic;
     background-color: black !important;
     }
 .HomeContainer{
-    background-color: black !important;
+
     }
 .startSegment1{
-    // background-image: url('../images/mimpo.jpg') !important;
-    background-size: cover !important;
-    background-repeat: no-repeat,repeat-y !important;
-    height:  101vh !important;
-    width: 100vw;
-    background: fixed;
-    
+    background-color: transparent !important;
 }
 .startSegment2{
     background-image: url('../images/casa.jpg') !important;
@@ -57,6 +51,19 @@ font-style: italic;
     background: fixed;
     
 }
+.ImageLegendeContainer{
+    width: 100vw !important;
+    height: 100vh !important;
+    margin-top: 5rem;
+    .Image-legende{
+   text-align: center !important;
+   object-fit: cover !important;
+   object-position: center !important;
+   width: 100% !important;
+    height: 100% !important;
+    }
+}
+
 
 .textStart{
     color:white;
@@ -82,7 +89,7 @@ font-style: italic;
     height: 4.5rem !important;
     width: 15rem !important;
     font-size: 1.75rem !important;
-    box-shadow:green 5px 5px, green 10px 10px !important;
+   
 }
 .btnStart:hover{
     -webkit-transform: scale(1.1);
@@ -171,4 +178,8 @@ width: 50% !important;
 }
 .loader{
     background-color: black !important;
+}
+.legend{
+    background-color: transparent !important;
+    opacity: 1 !important;
 }

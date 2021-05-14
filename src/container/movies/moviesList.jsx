@@ -46,10 +46,14 @@ const MoviesList = () => {
     const handlesubmit = useCallback((e) => {
         e.preventDefault()
         if (searchValue) {
-            fetch_api(search_Api + searchValue)
+            fetch_api(search_Api + searchValue + '&page='+activePage)
             setDiscoverApi(search_Api + searchValue +'&page='+activePage)
         }
-
+        else{
+            fetch_api(Featured_Api+activePage)
+            setDiscoverApi(Featured_Api+activePage)
+            setTitle('Tous les films')
+        }
     })
 
     const clickMoviesbar = useCallback((e) => {

@@ -4,7 +4,7 @@ const FirstBlock = ({src}) => {
     return (
         <>
             <Grid className='startSegment1' columns={16}>
-                <Image src={src} size='massive'/>
+                <Image src={src} size='large'/>
                 <Grid.Column className='textStart' mobile={16} tablet={16} computer={8}>
                     <div className='texthome'>
                         Recherchez un film au choix et savourez-le avec le plaisir.
