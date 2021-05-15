@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react'
 import { Button, Grid } from 'semantic-ui-react'
 import MoviesCard from './movieCard'
 import { Link } from 'react-router-dom'
-import Carousel from 'react-elastic-carousel';
-import Slider from 'infinite-react-carousel';
 
 const Featured_Api = `https://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=10`;
 
@@ -27,10 +25,6 @@ const News = () => {
             </Grid>
 
             <Grid container>
-                {/* 
-                <Slider dots autoplay={true} autoplaySpeed={3000}>
-                    
-                </Slider> */}
                 {
                     newsMovies.length > 0 && newsMovies.slice(0, 4).map(movie => <Grid.Column mobile={8} tablet={5} computer={4} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
                 }

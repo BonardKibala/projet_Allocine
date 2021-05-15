@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './home'
 import MenuSite from './menu';
 import MoviesList from './movies/moviesList';
-import SeriesList from './series/seiesList';
+import SeriesList from './series/seriesList';
 import ActorsList from './actors/actorsList'
 import Footer from './footer';
 

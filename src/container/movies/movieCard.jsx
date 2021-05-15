@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
-import { Card, Image, Button, Icon, Modal, Table, Header, Rating } from 'semantic-ui-react'
+import { Card, Image, Button, Icon, Modal, Table, Header } from 'semantic-ui-react'
 import VideoView from './video_View'
 
 
@@ -76,7 +76,7 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
               Votes: {detail.vote_count}<br></br>
               Moyenne votes: {detail.vote_average} </p>
                 
-                <div stackable className='contentTable'>
+                <div className='contentTable'>
                 <Table stackable className='detail_Table'>
                   <Table.Body>
                     <Table.Row>
@@ -148,7 +148,6 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
           <Icon name='remove' />Fermer
         </Button>
       </Modal.Actions>
-      {/* {JSON.stringify(details)} */}
     </Modal>
   )
 }

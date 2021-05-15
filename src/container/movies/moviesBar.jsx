@@ -1,46 +1,21 @@
-import React, { useState } from 'react'
-import {Menu,Button, Grid } from 'semantic-ui-react'
 
-const Moviesbar=({onClick})=> {
-  const [activeItem,setAtiveItem]=useState('home')
+import { Menu, Button, Grid, Segment } from 'semantic-ui-react'
+import ContentMoviesSideBar from '../Elements/contetMoviesSideBar'
 
-  const handleItemClick = (e, { name}) => setAtiveItem(name)
 
-    return (
-      <Menu inverted className='moviebar'>
-        <Grid container>
-        <Menu.Item>
-        <Button centered color='green' id='tous' basic onClick={onClick}>Tous les films</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='top' basic onClick={onClick}>Top films</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='comedy'  basic onClick={onClick}>Comedy</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='action' basic onClick={onClick} basic>Actions</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='romance' basic onClick={onClick} basic>Romantiques</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='aventure' basic onClick={onClick} basic>Aventures</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='crime' basic onClick={onClick} basic>Crime</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='familial' basic onClick={onClick} basic>Familiale</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='documentaire' basic onClick={onClick} basic>Documentaire</Button>
-        </Menu.Item>
-        <Menu.Item>
-        <Button centered color='green' id='fiction' basic onClick={onClick} basic>Science Fiction</Button>
-        </Menu.Item>
-        </Grid>
-      </Menu>
-    )
-  }
-  export default Moviesbar;
+const Moviesbar = ({ onClick }) => {
+
+  return (
+    <Menu inverted className='moviebar'>
+      <Grid container>
+        {
+          ContentMoviesSideBar.map(content =><Menu.Item>
+            <Button centered color='green' id={content.id} basic onClick={onClick}>{content.title}</Button>
+          </Menu.Item> )
+        }
+      </Grid>
+    </Menu>
+
+  )
+}
+export default Moviesbar;

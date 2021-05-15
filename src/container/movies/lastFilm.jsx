@@ -2,7 +2,7 @@ import { Button, Grid} from 'semantic-ui-react'
 import MoviesCard from './movieCard'
 import { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom';
-import LoaderPage from './loader';
+import LoaderPage from "../Elements/loader";
 const LastFilms = () => {
     const Featured_Api = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=100`;
 

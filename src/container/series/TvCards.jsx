@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
-import { Card, Image, Button, Icon, Modal, Table, Header, Rating, Message } from 'semantic-ui-react'
+import { Card, Image, Button, Icon, Modal,Message } from 'semantic-ui-react'
 import VideoView from '../movies/video_View';
 
 
@@ -56,7 +56,6 @@ const TvCard = ({ id, name, poster_path, overview }) => {
           <Card.Content className='cardContent'>
             <Card.Header className='filmTitle'>{name}</Card.Header>
             <Card.Meta>
-              {/* <span className='releaseDate'>{release_date}</span> */}
             </Card.Meta>
           </Card.Content>
         </Card>

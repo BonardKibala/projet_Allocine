@@ -1,24 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Grid, Pagination } from "semantic-ui-react";
-import LoaderPage from "../movies/loader";
-import MoviesCard from "../movies/movieCard";
-import Moviesbar from "../movies/moviesBar";
+import LoaderPage from "../Elements/loader";
 import FormSearch from "../Elements/formsearch";
 import ActorsCard from "./actorsCard";
+import PaginationPage from "../components/pagination";
 
 
 const ActorsList = () => {
     const [actors, setActors] = useState([])
 
-    const [genreId, setGenreId] = useState('')
     const Featured_Api = `https://api.themoviedb.org/3/person/popular?api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
 
 
     const [activePage, setActivePage] = useState(1);
     const search_Api = `https://api.themoviedb.org/3/search/person?&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&query=`;
     const [searchValue, setSearchValue] = useState('')
-    const [searchQuery, setSearchQuery] = useState(search_Api + searchValue)
     const [title, setTitle] = useState('Acteurs')
 
     const [ActorsApi, setActorsApi] = useState(Featured_Api + activePage);
@@ -74,7 +71,7 @@ const ActorsList = () => {
                 </Grid.Column>
             </Grid>
             {
-                loading ? <div><LoaderPage /></div> :
+                loading ? <LoaderPage />:
                     <div>
                         <Grid container >
 
@@ -82,19 +79,7 @@ const ActorsList = () => {
                                 actors.length > 0 ? actors.map(actor => <Grid.Column mobile={8} tablet={5} computer={3} className="cardColumn"><ActorsCard key={actor.id} {...actor} /></Grid.Column>) : <h1>Pas de contenu</h1>
                             }
                         </Grid>
-                        <Grid>
-                            <Grid.Column className='cardColumn' mobile={8}>
-                                <Pagination
-                                    activePage={activePage}
-                                    onPageChange={pageChange}
-                                    totalPages={100}
-                                    ellipsisItem={null}
-                                    secondary
-                                    inverted
-                                />
-                            </Grid.Column>
-                            <br></br><br></br><div className='separeBlock'></div><br></br>
-                        </Grid>
+                        <PaginationPage activePage={activePage} pageChange={pageChange}/>
                     </div>
 
             }

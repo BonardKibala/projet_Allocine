@@ -1,7 +1,6 @@
-import { Menu, Segment, Search, Header, Icon, Input, Form, Grid } from 'semantic-ui-react'
+import { Menu, Segment,Header, Icon, Grid } from 'semantic-ui-react'
 import React, { useState,useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import MoviesList from './movies/moviesList'
 
 
 const MenuSite = () => {

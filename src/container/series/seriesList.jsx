@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Grid, Pagination } from "semantic-ui-react";
-import LoaderPage from "../movies/loader";
+import LoaderPage from "../Elements/loader";
 import FormSearch from "../Elements/formsearch";
 import TvCard from "./TvCards";
 import TvBar from "./tvBar";
+import PaginationPage from "../components/pagination";
 
 
 const SeriesList = () => {
@@ -17,7 +18,6 @@ const SeriesList = () => {
     const [activePage, setActivePage] = useState(1);
     const search_Api = `https://api.themoviedb.org/3/search/tv?&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&query=`;
     const [searchValue, setSearchValue] = useState('')
-    const [searchQuery, setSearchQuery] = useState(search_Api + searchValue)
 
     const [title, setTitle] = useState('A la télévision')
     const [TvApi, setTvApi] = useState(Featured_Api + activePage);
@@ -145,19 +145,7 @@ const SeriesList = () => {
                                 actors.length > 0 && actors.map(actor => <Grid.Column mobile={8} tablet={5} computer={3} className="cardColumn"><TvCard key={actor.id} {...actor} /></Grid.Column>)
                             }
                         </Grid>
-                        <Grid>
-                            <Grid.Column className='cardColumn' mobile={8}>
-                                <Pagination
-                                    activePage={activePage}
-                                    onPageChange={pageChange}
-                                    totalPages={100}
-                                    ellipsisItem={null}
-                                    secondary
-                                    inverted
-                                />
-                            </Grid.Column>
-                            <br></br><br></br><div className='separeBlock'></div><br></br>
-                        </Grid>
+                        <PaginationPage activePage={activePage} pageChange={pageChange}/>
                     </div>
 
             }

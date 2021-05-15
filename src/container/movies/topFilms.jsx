@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Button, Card, Grid } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import MoviesCard from './movieCard';
-import Carousel from 'react-elastic-carousel'
-import Slider from 'infinite-react-carousel'
 
 const Featured_Api = `https://api.themoviedb.org/3/movie/top_rated?sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=10`;
 
