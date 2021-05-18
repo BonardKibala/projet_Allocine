@@ -6,15 +6,15 @@ import ContentMoviesSideBar from '../Elements/contetMoviesSideBar'
 const Moviesbar = ({ onClick }) => {
 
   return (
-    <Menu inverted className='moviebar'>
+    <div inverted className='moviebar'>
       <Grid container>
         {
-          ContentMoviesSideBar.map(content =><Menu.Item>
+          ContentMoviesSideBar.map(content =>
             <Button centered color='green' id={content.id} basic onClick={onClick}>{content.title}</Button>
-          </Menu.Item> )
+           )
         }
       </Grid>
-    </Menu>
+    </div>
 
   )
 }

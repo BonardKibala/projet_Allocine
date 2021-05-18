@@ -14,14 +14,14 @@ const MenuSite = () => {
                 <Menu inverted pointing secondary >
                     <Grid>
                         <Grid.Row>
-                            <Grid.Column computer={8} mobile={8} className='cardColumn'>
+                            <Grid.Column computer={8} mobile={16} className='cardColumn'>
                                 <Menu.Item onClick={() => handleItemClick('home')} active={activeItem === 'home'}>
                                     <Header inverted className='header'>
                                         <Link to='/'><h1 className='head' >Biso<span className='span'>Film</span></h1></Link><Icon className='iconFilm' name='film' />
                                     </Header>
                                 </Menu.Item>
                             </Grid.Column>
-                            <Grid.Column computer={8} mobile={8}>
+                            <Grid.Column computer={8} mobile={16}>
                                 <Menu.Menu position='right'>
                                     
                                     <Link to="/movies"><Menu.Item name='Films' onClick={() => handleItemClick('films')} active={activeItem === 'films'} /></Link>
