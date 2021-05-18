@@ -156,6 +156,7 @@ const MoviesList = () => {
                 break;
 
             default:
+                setDiscoverApi(Featured_Api +pageInfo.activePage.toString())
                 break;
         }
         if (searchValue) {

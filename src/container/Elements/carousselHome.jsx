@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {Link} from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel';
-import { Image,Button } from 'semantic-ui-react'
+import { Image,Button,Grid } from 'semantic-ui-react'
 
 
 
@@ -28,14 +28,27 @@ const CarousselHome = () => {
 			<Carousel autoPlay={true}>
 				{movies.map(movie => <div className='ImageLegendeContainer'><Image src={ImageApi + movie.poster_path} className='Image-legende'/>
 				<div className='legend'>
-                    <div>
+				<Grid className='startSegment1' columns={16}>
+                <Grid.Column className='textStart' mobile={16} tablet={16} computer={8}>
+                    <div className='texthome'>
+                        Recherchez un film au choix et savourez-le avec le plaisir.
+                        <br></br><br></br>
+                        <span className='bienvenu'>
+                            Vous êtes le(a) bienvenu(e)
+                          </span>
+                    </div>
+                    <div><br></br>
+					<div>
                         <Link to="/movies">
                             <Button primary className='btnStart'>
                                 Commencer
                          </Button>
                         </Link>
                     </div>
-				</div>
+                    </div>
+                </Grid.Column>
+            </Grid> <br></br><br></br><br></br><br></br>
+				</div><br></br>
 				</div>)
 				}
 			</Carousel>

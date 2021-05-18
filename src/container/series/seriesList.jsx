@@ -22,6 +22,7 @@ const SeriesList = () => {
     const [title, setTitle] = useState('A la télévision')
     const [TvApi, setTvApi] = useState(Featured_Api + activePage);
     const [loading, setLoading] = useState(false)
+    const [idValue,setIdValue]=useState('')
 
     useEffect(() => {
         setLoading(true)
@@ -58,11 +59,55 @@ const SeriesList = () => {
     const pageChange = (e, pageInfo) => {
         e.preventDefault()
         setActivePage(pageInfo.activePage);
-        setTvApi(Featured_Api + pageInfo.activePage.toString());
+        switch (idValue) {
+            case 'comedy':
+                setTvApi(genrePart1 + 35 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'tous':
+                setTvApi(Featured_Api + pageInfo.activePage.toString());
+                break;
+            case 'animation':
+                setTvApi(genrePart1 + 16 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'kids':
+                setTvApi(genrePart1 + 10762 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'news':
+                setTvApi(genrePart1 + 10763 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'aventure':
+                setTvApi(genrePart1 + 10759 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'crime':
+                setTvApi(genrePart1 + 80 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'familial':
+                fetch_api(genrePart1 + 10751 + genrePart2 + activePage)
+                setTitle('Séries pour la Famille')
+                break;
+            case 'documentaire':
+                setTvApi(genrePart1 + 99 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'reality':
+                setTvApi(genrePart1 + 10764 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'politic':
+                setTvApi(genrePart1 + 10768 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'drame':
+                setTvApi(genrePart1 + 18 + genrePart2 + pageInfo.activePage.toString())
+                break;
+            case 'today':
+                setTvApi(airing_today_Api + pageInfo.activePage.toString())
+                break;
+            default:
+                break;
+        }
     };
 
     const clickTvbar = (e) => {
         const buttonChildren = e.target.id
+        setIdValue(buttonChildren)
         switch (buttonChildren) {
             case 'comedy':
                 fetch_api(genrePart1 + 35 + genrePart2 + activePage)
