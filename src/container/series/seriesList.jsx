@@ -12,7 +12,7 @@ const SeriesList = () => {
     const [actors, setActors] = useState([])
     const genrePart1 = 'https://api.themoviedb.org/3/tv/popular?with_genres=';
     const genrePart2 = '&sort_by=popularity.desc&api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page='
-    const airing_today_Api = 'https://api.themoviedb.org/3/tv/airing_today?api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=en-US&page='
+    const airing_today_Api = 'https://api.themoviedb.org/3/tv/airing_today?api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-Fr&page='
     const Featured_Api = `https://api.themoviedb.org/3/tv/top_rated?api_key=b8e4f457e57f8e0e1ed625b784a14f3b&language=fr-FR&page=`;
 
     const [activePage, setActivePage] = useState(1);
