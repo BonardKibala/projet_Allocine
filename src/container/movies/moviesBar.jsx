@@ -1,5 +1,5 @@
 
-import { Menu, Button, Grid, Segment } from 'semantic-ui-react'
+import { Button, Grid} from 'semantic-ui-react'
 import ContentMoviesSideBar from '../Elements/contetMoviesSideBar'
 
 

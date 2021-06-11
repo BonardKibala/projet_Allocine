@@ -19,7 +19,7 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
       .then(data => {
         setVideos(data.results);
       })
-  }, []);
+  },[Videos_Api]);
 
   useEffect(() => {
     fetch(Details_Api).then(response => response.json())
@@ -27,7 +27,7 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
         setDetails([data]);
         console.log(data)
       })
-  }, []);
+  },[Details_Api]);
 
   return (
 

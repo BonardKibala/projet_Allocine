@@ -7,7 +7,7 @@ const MenuSite = () => {
     const [activeItem, setActiveItem] = useState('')
     const handleItemClick = useCallback((name) => {
         setActiveItem(name)
-    });
+    },[]);
     return (
         <>
             <Segment inverted className='Menu'>

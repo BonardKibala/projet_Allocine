@@ -18,13 +18,13 @@ const TvCard = ({ id, name, poster_path, overview }) => {
       .then(data => {
         setTvDetails([data]);
       })
-  }, []);
+  }, [TvDetailsApi]);
   useEffect(() => {
     fetch(TvVideosApi).then(response => response.json())
       .then(data => {
         setTvVideos(data.results);
       })
-  }, []);
+  }, [TvVideosApi]);
 
 
   const ContentDetails = () => {

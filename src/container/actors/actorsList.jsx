@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Grid, Pagination } from "semantic-ui-react";
+import { Grid} from "semantic-ui-react";
 import LoaderPage from "../Elements/loader";
 import FormSearch from "../Elements/formsearch";
 import ActorsCard from "./actorsCard";

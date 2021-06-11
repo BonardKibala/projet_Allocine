@@ -7,7 +7,7 @@ const TvBar = ({ onClick }) => {
 
   const handleItemClick = useCallback((name) => {
     setActiveItem(name)
-  });
+  },[]);
 
   return (
    

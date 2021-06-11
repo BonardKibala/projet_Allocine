@@ -14,7 +14,7 @@ const SeriesTV = () => {
                 console.log(data);
                 setSeriesTV(data.results);
             })
-    }, []);
+    }, [Featured_Api]);
     
     return (
         <>

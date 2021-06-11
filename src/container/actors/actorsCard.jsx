@@ -16,7 +16,7 @@ const ActorsCard = ({ id, name, profile_path, known_for }) => {
       .then(data => {
         setActorsDetails([data]);
       })
-  }, []);
+  });
 
 
 

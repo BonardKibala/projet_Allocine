@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState,useCallback } from "react";
-import { Grid, Pagination } from "semantic-ui-react";
+import { Grid} from "semantic-ui-react";
 import LoaderPage from "../Elements/loader";
 import MoviesCard from "./movieCard";
 import Moviesbar from "./moviesBar";
@@ -25,23 +25,24 @@ const MoviesList = () => {
     const [loading, setLoading] = useState(false)
     const [idValue,setIdValue]=useState('')
 
-    useEffect(() => {
-        setLoading(true)
-        fetch_api(DiscoverApi)
-    }, [DiscoverApi]);
-
-
     const fetch_api = useCallback((api) => {
         fetch(api).then(response => response.json())
             .then(data => {
                 setLoading(false)
                 setMovies(data.results);
             })
-    });
+    },[]);
+
+    useEffect(() => {
+        fetch_api(DiscoverApi)
+    },[fetch_api,DiscoverApi]);
+
+
+
     const handlechange = useCallback((e) => {
         const value = e.target.value
         setSearchValue(value)
-    })
+    },[])
     const handlesubmit = useCallback((e) => {
         e.preventDefault()
         if (searchValue) {
@@ -53,7 +54,7 @@ const MoviesList = () => {
             setDiscoverApi(Featured_Api+activePage)
             setTitle('Tous les films')
         }
-    })
+    },[searchValue,fetch_api,search_Api, activePage,Featured_Api])
 
     const clickMoviesbar = useCallback((e) => {
         const buttonChildren = e.target.id
@@ -115,7 +116,7 @@ const MoviesList = () => {
                 break;
         }
         
-    })
+    },[DiscoverApi, Featured_Api, activePage, fetch_api, topUrl])
 
 
     const pageChange = (e, pageInfo) => {

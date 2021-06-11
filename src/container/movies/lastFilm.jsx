@@ -15,7 +15,7 @@ const LastFilms = () => {
                 setLoading(false)
                 setlastMovies(data.results);
             })
-    }, []);
+    });
     
     return (
         <>

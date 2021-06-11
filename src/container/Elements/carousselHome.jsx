@@ -13,7 +13,7 @@ const CarousselHome = () => {
 
 	useEffect(() => {
 		fetchFonction(AllMovies)
-	}, []);
+	});
 
 
 	const fetchFonction = useCallback((api) => {
@@ -21,7 +21,7 @@ const CarousselHome = () => {
 			.then(data => {
 				setMovies(data.results);
 			})
-	});
+	},[]);
 
 	return (
 		<div>
