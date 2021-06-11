@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
-import { Card, Image, Button, Icon, Modal, Table, Header } from 'semantic-ui-react'
+import { Card, Image, Button, Icon, Modal, Table, Header, Message, Grid } from 'semantic-ui-react'
 import VideoView from './video_View'
 
 
@@ -58,7 +58,7 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
         <Image size='huge' src={Image_Api + poster_path} wrapped />
         <Modal.Description>
           <p>
-            {overview} <br></br>
+          <Message color='black'>{overview}</Message> <br></br>
           </p>
           <div>
 
@@ -77,7 +77,9 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
               Moyenne votes: {detail.vote_average} </p>
                 
                 <div className='contentTable'>
-                <Table stackable className='detail_Table'>
+                 <Grid>
+                   <Grid.Column computer={5} mobile={16} tablet={8}>
+                   <Table stackable className='detail_Table'>
                   <Table.Body>
                     <Table.Row>
                       <Table.Cell>
@@ -95,9 +97,10 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
 
                     </Table.Row>
                   </Table.Body>
-
                 </Table>
-                <Table stackable className='detail_Table'>
+                   </Grid.Column >
+                   <Grid.Column computer={5} mobile={16} tablet={8}>
+                   <Table stackable className='detail_Table'>
                   <Table.Body>
                     <Table.Row>
                       <Table.Cell>
@@ -115,23 +118,9 @@ const MoviesCard = ({ id, title, poster_path, release_date, overview }) => {
                     </Table.Row>
                   </Table.Body>
                 </Table>
-                <Table stackable className='detail_Table'>
-                  <Table.Body>
-                    <Table.Row>
-                      <Table.Cell>
-                        <Header as='h4' color='blue' textAlign='center'>
-                        Pays producteurs
-                                </Header>
-                      </Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                      {detail.production_countries.map((country, index)=> <div>
-                        <Table.Cell singleLine>{country.name}</Table.Cell>
-                        
-                      </div>)}
-                    </Table.Row>
-                  </Table.Body>
-                </Table>
+                   </Grid.Column>
+                 </Grid>
+                
                 </div>
 
                 <p>Langues parlées: {detail.spoken_languages.map((language, index) => (

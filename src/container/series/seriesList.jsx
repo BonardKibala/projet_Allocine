@@ -187,7 +187,7 @@ const SeriesList = () => {
                         <Grid container >
 
                             {
-                                actors.length > 0 && actors.map(actor => <Grid.Column mobile={8} tablet={5} computer={3} className="cardColumn"><TvCard key={actor.id} {...actor} /></Grid.Column>)
+                                actors.length > 0 && actors.map(actor => <Grid.Column mobile={16} tablet={5} computer={3} className="cardColumn"><TvCard key={actor.id} {...actor} /></Grid.Column>)
                             }
                         </Grid>
                         <PaginationPage activePage={activePage} pageChange={pageChange}/>

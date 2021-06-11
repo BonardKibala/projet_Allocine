@@ -183,7 +183,7 @@ const MoviesList = () => {
                         <Grid container >
 
                             {
-                                movies.length > 0 && movies.map(movie => <Grid.Column mobile={8} tablet={5} computer={3} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
+                                movies.length > 0 && movies.map(movie => <Grid.Column mobile={16} tablet={5} computer={3} className="cardColumn"><MoviesCard key={movie.id} {...movie} /></Grid.Column>)
                             }
                             <br></br>
                         </Grid>

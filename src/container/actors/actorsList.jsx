@@ -76,7 +76,7 @@ const ActorsList = () => {
                         <Grid container >
 
                             {
-                                actors.length > 0 ? actors.map(actor => <Grid.Column mobile={8} tablet={5} computer={3} className="cardColumn"><ActorsCard key={actor.id} {...actor} /></Grid.Column>) : <h1>Pas de contenu</h1>
+                                actors.length > 0 ? actors.map(actor => <Grid.Column mobile={16} tablet={5} computer={3} className="cardColumn"><ActorsCard key={actor.id} {...actor} /></Grid.Column>) : <h1>Pas de contenu</h1>
                             }
                         </Grid>
                         <PaginationPage activePage={activePage} pageChange={pageChange}/>
